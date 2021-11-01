@@ -9,5 +9,5 @@ output : html_document
 
 ## 10월 31일  
 [ ] category / 지효  
-[ ] menu / 수연  
+[ v ] menu / 수연  - 모양은 잡아놨으나 li 배경색 안먹음. 더 공부하고 수정하겠음.
 [ ] search /    
