@@ -5,9 +5,13 @@ import logo from "logos/logo.png";
 import "./NavBar.css";
 
 function NavBar() {
-  const [isOpen, setToggle] = useState(false);
+  const [isOpenMenu, setToggleMenu] = useState(false);
+  const [isOpenSearch, setToggleSearch] = useState(false);
   const toggleMenu = () => {
-    setToggle((isOpen) => !isOpen);
+    setToggleMenu((isOpenMenu) => !isOpenMenu);
+  };
+  const toggleSearch = () => {
+    setToggleSearch((isOpenSearch) => !isOpenSearch);
   };
 
   return (
@@ -21,7 +25,7 @@ function NavBar() {
             <a href="#" onClick={() => toggleMenu()}>
               메뉴 <FontAwesomeIcon icon={faAngleDown} />
             </a>
-            <ul class={isOpen ? "show-menu" : "hide-menu"}>
+            <ul class={isOpenMenu ? "show-menu" : "hide-menu"}>
               <li>
                 <a href="#">홈</a>
               </li>
@@ -51,8 +55,11 @@ function NavBar() {
         </ul>
 
         <ul class="right_menu">
-          <li>
-            <FontAwesomeIcon icon={faSearch} />
+          <li onClick={() => toggleSearch()} class="search">
+              <input  class= {"searchInput"+(isOpenSearch ? " toggle" : "")}  type="text" placeholder="제목, 장르, 사람" />
+              <span class="searchIcon">
+                <FontAwesomeIcon icon={faSearch} />
+              </span>
           </li>
           <li>
             <a href="#">로그아웃</a>
