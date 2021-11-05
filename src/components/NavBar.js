@@ -3,12 +3,11 @@ import { faAngleDown, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from "logos/logo.png";
 import "./NavBar.css";
-import categoryData from "components/CategoryData.json";
+import Category from "./Category";
 
 function NavBar() {
   const [isOpenMenu, setToggleMenu] = useState(false);
   const [isOpenSearch, setToggleSearch] = useState(false);
-  const [isOpenCategory, setToggleCategory] = useState(false);
 
   const toggleMenu = () => {
     setToggleMenu((isOpenMenu) => !isOpenMenu);
@@ -16,10 +15,8 @@ function NavBar() {
   const toggleSearch = () => {
     setToggleSearch((isOpenSearch) => !isOpenSearch);
   };
-  const toggleCategory = () => {
-    setToggleCategory((isOpenCategory) => !isOpenCategory);
-  }; /* 추후 수정 예정 api추가하여 fetch로 받아온 다음 작업해야함 */
-  // categoryData.category.map((item)=>{console.log("item: "+item)});
+
+
   return (
     <div>
       <header className="header">
@@ -52,15 +49,7 @@ function NavBar() {
           <li>
             <a href="#!">홈</a>
           </li>
-          <li>
-            <a onClick={() => toggleCategory()}>카테고리</a>
-            <ul className={isOpenCategory ? "show-menu" : "hide-menu"}>
-              {categoryData.category.map((item, index) => {
-                console.log(item);
-                return (<li key={index}>{item}</li>)
-              })}
-            </ul>
-          </li>
+            <Category />
           <li>
             <a href="#!">찜한 콘텐츠</a>
           </li>
@@ -85,8 +74,9 @@ function NavBar() {
 
       <footer className="footer">
         {/* TO DO: link 고쳐야함 */}
-        <a href="https://github.com/Makeet/minflix">Minflix</a> &copy;Makeet{" "}
-        {new Date().getFullYear()}.
+        <a href="https://github.com/Makeet/minflix">
+          Minflix
+        </a> &copy;Makeet {new Date().getFullYear()}.
       </footer>
     </div>
   );
