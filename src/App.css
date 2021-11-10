@@ -1,15 +1,139 @@
 /* reset */
-*{
+* {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  background: #333;
-}
+  background: #333; }
 
 ul, ol {
-  list-style: none;
-}
+  list-style: none; }
 
 a {
   text-decoration: none;
-}
+  color: #ddd; }
+
+/* Category.css */
+.hide-category {
+  visibility: hidden; }
+
+/* NavBar.css */
+a:hover {
+  color: #ddd; }
+
+/* header */
+.logo {
+  pointer-events: none;
+  width: 88px;
+  margin-left: 45px; }
+
+.header {
+  /* background-color: #333; */
+  width: 100%;
+  height: 55px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between; }
+
+.header ul {
+  display: flex;
+  padding: 10px;
+  position: absolute;
+  top: 15%; }
+
+.header ul li {
+  cursor: pointer;
+  letter-spacing: 1px; }
+
+.header .left_menu li, .header .right_menu li {
+  margin-left: 17px;
+  color: #ddd;
+  font-size: 15px; }
+
+.header .left_menu {
+  left: 170px;
+  margin: 0px; }
+
+.header .right_menu {
+  right: 4vw; }
+
+.header .navigation-menu {
+  display: none;
+  margin-left: 42px; }
+
+.show-menu {
+  border: 1px solid #555;
+  border-top: 2px solid #ddd;
+  background-color: rgba(27, 27, 27, 0.7);
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: auto;
+  margin-top: 45px;
+  padding: 0px;
+  left: 90px;
+  text-align: center;
+  flex-direction: column; }
+
+.show-menu li {
+  padding: 10px 0px 10px 0px; }
+
+.show-menu li:hover {
+  background-color: rgba(51, 51, 51, 0.7); }
+
+.hide-menu, .search-hide {
+  visibility: hidden; }
+
+.search {
+  right: 85px;
+  position: absolute;
+  display: inline-block; }
+
+.searchInput {
+  width: 0px;
+  height: 34px;
+  border: 1px solid transparent;
+  box-shadow: none;
+  outline: none;
+  padding: 4px;
+  padding-left: 35px;
+  font-size: 14px;
+  transition: 1s ease all;
+  color: #eee;
+  top: -5px;
+  transform: translateY(-20%); }
+
+.toggle {
+  width: 240px;
+  border-color: #eee; }
+
+.searchIcon {
+  width: 18px;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-90%);
+  position: absolute; }
+
+/* footer */
+.footer {
+  position: absolute;
+  bottom: 5vh;
+  left: 50%;
+  z-index: 2;
+  font: 12px/1 "arial";
+  color: #ddd;
+  letter-spacing: 2px;
+  transform: translateX(-50%);
+  z-index: 1; }
+
+@media screen and (max-width: 754px) {
+  .header .left_menu {
+    display: none; }
+
+  .header .navigation-menu {
+    display: inline; } }
+/* Like.css */
+
+/*# sourceMappingURL=App.css.map */
