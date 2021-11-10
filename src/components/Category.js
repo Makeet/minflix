@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import categoryData from "components/CategoryData.json";
 import "./Category.css";
+import "./reset.css";
 
 function Category() {
   const [isOpenCategory, setToggleCategory] = useState(false);
@@ -19,8 +20,13 @@ function Category() {
     }
   };
 
+  /*
+   *  Category를 3개로 나눠서 표 형식으로 적용해 줄 것
+   *    가설 1 : Pagination 이용하면 가능하지 않을까???
+   *    - li 태그 안에 div 넣고
+   *    - ul 3개 들어가도록
+   */
   const genre = categoryData.category.map((item, index) => {
-
     return (
       <>
         <li key={"category"+index}>
