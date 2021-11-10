@@ -1,6 +1,4 @@
-import React from 'react'
-import './reset.css'
-import './Like.css'
+import React from 'react';
 
 function Like() {
     

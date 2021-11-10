@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { faAngleDown, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from "logos/logo.png";
-import "./NavBar.css";
 import Category from "./Category";
 
 function NavBar() {

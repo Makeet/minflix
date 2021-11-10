@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import categoryData from "components/CategoryData.json";
-import "./Category.css";
-import "./reset.css";
 
 function Category() {
   const [isOpenCategory, setToggleCategory] = useState(false);
