@@ -1,19 +1,4 @@
-/* reset */
-*{
-  padding: 0px;
-  margin: 0px;
-  box-sizing: border-box;
-  background: #333;
-}
-
-ul, ol {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: #ddd;
-}
+@import "reset.css";
 
 a:hover {
   color: #ddd;
