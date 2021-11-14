@@ -51,23 +51,23 @@ html {
   .play {
     background-color: #fff;
     color: #222;
+
+    &:hover {
+      color: rgb(255, 255, 255);
+      background-color: #3d3d3d;
+      transition: all 0.2s;
+    }
   }
 
   .board {
     background-color: rgba(85, 85, 85, 0.8);
     color: #fff;
-  }
 
-  .play:hover {
-    color: rgb(255, 255, 255);
-    background-color: #3d3d3d;
-    transition: all 0.2s;
-  }
-  
-  .board:hover {
-    color: #000;
-    background-color: #e6e6e6;
-    transition: all 0.2s;
+    &:hover {
+      color: #000;
+      background-color: #e6e6e6;
+      transition: all 0.2s;
+    }
   }
 
   .banner__top {
