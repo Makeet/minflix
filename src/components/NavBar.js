@@ -21,7 +21,9 @@ function NavBar() {
       <header className="header">
         <ul>
           <li>
+          <a id="logo" href="/">
             <img src={logo} className="logo" alt="logo" />
+          </a>
           </li>
           <li className="navigation-menu">
             <a href="#!" onClick={() => toggleMenu()}>
@@ -70,13 +72,6 @@ function NavBar() {
           </li>
         </ul>
       </header>
-
-      <footer className="footer">
-        {/* TO DO: link 고쳐야함 */}
-        <a href="https://github.com/Makeet/minflix">
-          Minflix
-        </a> &copy;Makeet {new Date().getFullYear()}.
-      </footer>
     </div>
   );
 }

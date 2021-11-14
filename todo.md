@@ -20,3 +20,8 @@ date : '2021-10-31'
 - Recflow  
   + [ ] Category를 3개로 나눠서 표 형식으로 적용해 줄 것   
     * 요소: `<div>`을 만들어 table적용 `<ul>`은 table-cell 적용  
+
+### 11월 14일 
+- Mohasy
+  + [X] 메인 화면 레이아웃 잡기
+  + [ ] footer 수정
