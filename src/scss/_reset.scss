@@ -3,7 +3,6 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    background: #333;
   }
   
   ul, ol {
@@ -13,6 +12,10 @@
   a {
     text-decoration: none;
     color: #ddd;
+  }
+
+  .App {
+    background-color: #111;
   }
 
   
