@@ -2,11 +2,13 @@
 function Footer() {
     return(
         <>
-            <footer className="footer">
+            <footer role="contentinfo" className="footer">
                 {/* TO DO: link 고쳐야함 */}
-                <a href="https://github.com/Makeet/minflix">
-                Minflix
-                </a> &copy;Makeet {new Date().getFullYear()}.
+                <div className="footer-copyright">
+                    <a href="https://github.com/Makeet/minflix">
+                    Minflix
+                    </a> &copy;Makeet {new Date().getFullYear()}.
+                </div>
             </footer>
         </>
     )

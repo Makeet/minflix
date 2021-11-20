@@ -1,12 +1,16 @@
-  
   /* footer */
   .footer {
-    position: absolute;
-    bottom: 0px;
+    max-width: 980px;
+    margin: 20px auto 0;
+    padding: 0 4%;
     left: 50%;
-    z-index: 2;
+  }
+
+  .footer-copyright {
+    text-align: center;
     font: 12px/1 "arial";
     color: #ddd;
     letter-spacing: 2px;
-    transform: translateX(-50%);
+    display: block;
+    margin-bottom: 15px;
   }

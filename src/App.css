@@ -129,7 +129,8 @@ a:hover {
 /* Like.css */
 /* Home.css */
 html {
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+  background-color: #111; }
 
 .banner {
   color: white;
@@ -235,13 +236,17 @@ html {
     display: none; } }
 /* footer */
 .footer {
-  position: absolute;
-  bottom: 0px;
-  left: 50%;
-  z-index: 2;
+  max-width: 980px;
+  margin: 20px auto 0;
+  padding: 0 4%;
+  left: 50%; }
+
+.footer-copyright {
+  text-align: center;
   font: 12px/1 "arial";
   color: #ddd;
   letter-spacing: 2px;
-  transform: translateX(-50%); }
+  display: block;
+  margin-bottom: 15px; }
 
 /*# sourceMappingURL=App.css.map */
