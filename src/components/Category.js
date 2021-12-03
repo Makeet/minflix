@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import categoryData from "DB/CategoryData.json";
 
@@ -43,9 +44,12 @@ function Category() {
     <>
       <li key="categories">
         <a onClick={() => toggleCategory()}>카테고리</a>
-        <ul className={isOpenCategory ? "show-category" : "hide-category"}>
+
+        <div className={isOpenCategory ? "show-category" : "hide-category"}>
+          <ul className="like-table">
           {genre}
-        </ul>
+          </ul>
+        </div>
       </li>
     </>
   );
