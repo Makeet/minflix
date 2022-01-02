@@ -37,7 +37,7 @@ function NavBar() {
                 <a href="#!">카테고리</a>
               </li>
               <li>
-                <a href="#!">찜한 콘텐츠</a>
+                <a href="/like">찜한 콘텐츠</a>
               </li>
               <li>
                 <a href="#!">설정</a>
@@ -52,7 +52,7 @@ function NavBar() {
           </li>
             <Category />
           <li>
-            <a href="#!">찜한 콘텐츠</a>
+            <a href="/like">찜한 콘텐츠</a>
           </li>
         </ul>
 
