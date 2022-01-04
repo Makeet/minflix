@@ -15,7 +15,6 @@ function Home() {
     setLoading(true);
     setMovies(null);
 
-    
     await axios
     .get("/api/main")
     .then((response) => {
@@ -30,6 +29,7 @@ function Home() {
       .catch((error) => {
         console.log("E>>>", error);
       });
+      setLoading(false);
   };
   
   useEffect(() => {
