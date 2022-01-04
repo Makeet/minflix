@@ -15,6 +15,13 @@ app.get('/api/test',(req, res)=>{
   })
 })
 
+app.get('/api/main', (req, res) =>{
+  db.query("SELECT * FROM minflix_db ORDER BY mno ASC", (err, data)=>{
+    if(err) throw err;
+    res.send({data :  data})
+  })
+})
+
 app.get('/api/like', (req, res) =>{
   db.query("SELECT l.lno, d.* FROM minflix_like l, minflix_db d WHERE l.mno=d.mno ORDER BY lno ASC", (err, data)=>{
     if(err) throw err;
