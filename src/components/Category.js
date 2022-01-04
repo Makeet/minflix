@@ -28,7 +28,7 @@ function Category() {
   const genre = categoryData.category.map((item, index) => {
     return (
       <>
-        <li key={"category"+index}>
+        <li key={"category" + index}>
           <input
             type="checkbox"
             id={item}
@@ -44,12 +44,13 @@ function Category() {
     <>
       <li key="categories">
         <a onClick={() => toggleCategory()}>카테고리</a>
-
-        <div className={isOpenCategory ? "show-category" : "hide-category"}>
-          <ul className="like-table">
-          {genre}
-          </ul>
-        </div>
+        {isOpenCategory ? (
+          <div className="category">
+            <ul className="like-table">{genre}</ul>
+          </div>
+        ) : (
+          ""
+        )}
       </li>
     </>
   );
