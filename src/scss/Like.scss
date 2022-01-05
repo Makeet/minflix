@@ -1,6 +1,4 @@
 /* Like.css */
-/* Home.css */
-
 $itemGrow: 1.2;
 $duration: 250ms;
 
@@ -8,6 +6,12 @@ html {
   scroll-behavior: smooth;
   background-color: #111;
   color : #eee;
+}
+.status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 .sub-header {
     position: relative;
@@ -99,3 +103,13 @@ html {
     }
 }
   
+.minimodal-container{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    overflow: auto;
+    outline: 0;
+}
