@@ -32,7 +32,7 @@ html {
     padding-top: 1rem;
     font-size: 1.2rem;
     max-width: 360px;
-    height: 80px;
+    height: 200px;
   }
   
   .banner__button {
@@ -101,61 +101,57 @@ html {
         font-family: Arial;
         color: #eee;
         text-align: left;
-        // margin-top: 100px;
+        margin-top: 100px;
         font-size: 22px;
     }
-
-    .wrapper {
-        display: grid;
-        grid-template-columns: repeat(3,100%);
-        overflow:hidden;
-        scroll-behavior: smooth;
-        
-        section {
+        .swiper-container {
             width: 100%;
-            position: relative;
-            display: grid;
-            grid-template-columns: repeat(5, auto);
             margin: 10px 0;
             
-            .item {
+            .swiper-slide {
                 padding: 0 2px;
                 transition: $duration all;
-            
+                
+                img {
+                  width: 350px;
+                  height: auto;
+                }
+
                 &:hover { 
                     margin: 0 40px;
                     transform: scale(1.2);
                 }
-            
             }
             
-            a {
-                position: absolute;
-                color: #fff;
-                text-decoration: none;
-                font-size: 6em;
-                background:rgb(0,0,0);
-                width: 80px;
-                padding: 20px;
-                text-align: center;
-                z-index: 1;
+            .arrow__btn {
+              position: absolute;
+              color: #fff;
+              text-decoration: none;
+              font-size: 5.5em;
+              background:rgba(0,0,0,.7);
+              height: 200px;
+              width: 40px;
+              z-index: 1;
+              top: 20px;
+              margin: -23px -10px;
+              padding-bottom: 10px;
+              opacity: 0;
+
+              &:hover{
+                opacity: 1;
+              }
             
-                &:nth-of-type(1) {
-                    top:0; bottom:0; left:0;
-                    background: linear-gradient(-90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
-                }
-                &:nth-of-type(2) {
-                    top:0; bottom:0; right: 0;
-                    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
-                }
+              &::after {
+                display: none;
+              }
             }
         }
-    }
+    
 }
 
 // Remove the arrow for Mobile
 @media only screen and (max-width: 600px) {
-  a.arrow__btn {
+  .arrow__btn {
     display:none;
   }
 }
