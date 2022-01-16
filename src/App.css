@@ -167,11 +167,17 @@ a:hover {
   }
 }
 /* Like.css */
-/* Home.css */
 html {
   scroll-behavior: smooth;
   background-color: #111;
   color: #eee;
+}
+
+.status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .sub-header {
@@ -405,6 +411,48 @@ html {
   letter-spacing: 2px;
   display: block;
   margin-bottom: 15px;
+}
+
+/* MiniModal.css */
+.minimodal-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  overflow: auto;
+  outline: 0;
+}
+.minimodal-container button {
+  border-width: 2px;
+  background-color: rgba(42, 42, 42, 0.6);
+  border-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  color: white;
+  -webkit-box-align: center;
+  align-items: center;
+  appearance: none;
+  cursor: pointer;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  opacity: 1;
+  padding: 0.8rem;
+  position: relative;
+  user-select: none;
+  will-change: background-color, color;
+  word-break: break-word;
+  white-space: nowrap;
+}
+.minimodal-container .buttons-control {
+  display: flex;
+}
+.minimodal-container .buttons-control * {
+  margin: 0.25em;
+}
+.minimodal-container .round {
+  border-radius: 50%;
 }
 
 /*# sourceMappingURL=App.css.map */
