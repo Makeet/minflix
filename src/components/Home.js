@@ -48,7 +48,6 @@ function Home() {
   if(error) return <div>에러발생</div>
   if(!movies) return null;
 
-
   return (
     <>
       <div 
@@ -87,7 +86,7 @@ function Home() {
             <Swiper
               modules={ [Navigation] }
               spaceBetween={50}
-              slidesPerView={5}
+              slidesPerView={6}
               onSlideChange={() => console.log('slide change')}
               onSwiper={(swiper) => console.log(swiper)}
               navigation={{
