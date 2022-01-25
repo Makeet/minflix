@@ -15,7 +15,7 @@ app.get('/api/test',(req, res)=>{
   })
 })
 
-app.get('/api/main', (req, res) =>{
+app.get('/api/all', (req, res) =>{
   db.query("SELECT * FROM minflix_db ORDER BY mno ASC", (err, data)=>{
     if(err) throw err;
     res.send({data :  data})
