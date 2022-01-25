@@ -14,7 +14,7 @@ function Row(props) {
     
                 <Swiper
                   modules={ [Navigation] }
-                  spaceBetween={20}
+                  spaceBetween={10}
                   slidesPerView={6}
                   onSlideChange={() => console.log('slide change')}
                   onSwiper={(swiper) => console.log(swiper)}
