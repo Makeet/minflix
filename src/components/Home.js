@@ -94,7 +94,7 @@ function Home() {
                 prevEl: '.swiper-button-prev',
               }}
             >
-              <span className="swiper-button-prev arrow__btn" role="button" aria-aria-label="이전 콘텐츠 보기">‹</span>
+              <span className="swiper-button-prev arrow__btn" role="button" aria-label="이전 콘텐츠 보기">‹</span>
 
               {movies.data.map((movie) => (
                 <SwiperSlide key={movie.mno}>
@@ -102,7 +102,7 @@ function Home() {
                 </SwiperSlide>
               ))}
 
-              <span className="swiper-button-next arrow__btn" role="button" aria-aria-label="콘텐츠 더 보기">›</span>
+              <span className="swiper-button-next arrow__btn" role="button" aria-label="콘텐츠 더 보기">›</span>
             </Swiper>
             
         </div>
