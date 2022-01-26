@@ -343,23 +343,11 @@ html {
     margin: 5px 0px; }
     .recommend .swiper-container .swiper-slide {
       padding: 2 2px;
-      transition: .25s linear all; }
+      transition: 250ms all; }
       .recommend .swiper-container .swiper-slide img {
         width: 275px;
         height: auto;
         border-radius: 2px; }
-        @media only screen and (max-width: 1399px) {
-          .recommend .swiper-container .swiper-slide img {
-            width: 252px; } }
-        @media only screen and (max-width: 1099px) {
-          .recommend .swiper-container .swiper-slide img {
-            width: 248px; } }
-        @media only screen and (max-width: 799px) {
-          .recommend .swiper-container .swiper-slide img {
-            width: 242px; } }
-        @media only screen and (max-width: 499px) {
-          .recommend .swiper-container .swiper-slide img {
-            width: 207px; } }
     .recommend .swiper-container .arrow__btn {
       position: absolute;
       color: #fff;
