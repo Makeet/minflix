@@ -42,13 +42,13 @@ function Row(props) {
                     },
                   }}
                 >
-                  <div className="swiper-button-prev arrow__btn" role="button" label="이전 콘텐츠 보기">‹</div>
+                  <div className="swiper-button-prev arrow__btn" role="button" label="이전 콘텐츠 보기"><span className="arrow__icon">‹</span></div>
                   {props.category.map((movie) => (
                     <SwiperSlide key={movie.mno}>
                       <img src={movie.poster} alt={`poster of ${movie.title}`} />
                     </SwiperSlide>
                   ))}
-                  <div className="swiper-button-next arrow__btn" role="button" label="콘텐츠 더 보기">›</div>
+                  <div className="swiper-button-next arrow__btn" role="button" label="콘텐츠 더 보기"><span className="arrow__icon">›</span></div>
                 </Swiper>
                 
             </div>

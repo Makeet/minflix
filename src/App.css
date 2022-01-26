@@ -223,14 +223,6 @@ html {
         .favorite .row-container .item .fallback-text-container .fallback-text {
           display: hidden; }
 
-.minimodal-container {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 999; }
-
 /* Home.css */
 html {
   scroll-behavior: smooth;
@@ -252,34 +244,40 @@ html {
   margin-bottom: 15px; }
 
 /* MiniModal.css */
-.minimodal-wrapper {
-  overflow: initial;
+.minimodal-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  height: 45vh;
   display: inline-block;
-  position: inherit;
-  border-radius: 2em;
+  border-radius: 0.5em;
+  overflow: hidden;
   background-color: #1e1e1e; }
-  .minimodal-wrapper .minimodal-poster-size-16x9 {
+  .minimodal-container .minimodal-poster-size-16x9 {
     width: 100%;
     height: 0;
     position: relative;
     overflow: auto;
     padding: 28.125% 0; }
-    .minimodal-wrapper .minimodal-poster-size-16x9 img {
+    .minimodal-container .minimodal-poster-size-16x9 img {
       position: absolute;
       top: 0;
       bottom: 0;
       left: 0;
       right: 0;
       width: 100%; }
-  .minimodal-wrapper .minimodal-poster-contaioner {
+  .minimodal-container .minimodal-poster-contaioner {
     display: block; }
-  .minimodal-wrapper .minimodal-metadata {
+  .minimodal-container .minimodal-metadata {
     display: grid; }
-    .minimodal-wrapper .minimodal-metadata .buttons {
+    .minimodal-container .minimodal-metadata .buttons {
       display: flex; }
-    .minimodal-wrapper .minimodal-metadata .buttons-right {
+    .minimodal-container .minimodal-metadata .buttons-right {
       margin-left: auto; }
-  .minimodal-wrapper button {
+  .minimodal-container button {
     border-width: 2px;
     background-color: rgba(42, 42, 42, 0.6);
     border-color: rgba(255, 255, 255, 0.5);
@@ -294,33 +292,30 @@ html {
     justify-content: center;
     opacity: 1;
     padding: 0.8rem;
-    position: relative;
-    user-select: none;
-    will-change: background-color, color;
     word-break: break-word;
     white-space: nowrap; }
-  .minimodal-wrapper .round {
+  .minimodal-container .round {
     border-radius: 50%;
     margin: 0.25em; }
-  .minimodal-wrapper .meta-thumb-container {
+  .minimodal-container .meta-thumb-container {
     display: inline-block;
     margin-bottom: -2px; }
-  .minimodal-wrapper .characteristic-list {
+  .minimodal-container .characteristic-list {
     display: flex;
     padding-right: 0.5vw; }
-    .minimodal-wrapper .characteristic-list .characteristic-item {
+    .minimodal-container .characteristic-list .characteristic-item {
       display: inline-block; }
-      .minimodal-wrapper .characteristic-list .characteristic-item .characteristic-text {
+      .minimodal-container .characteristic-list .characteristic-item .characteristic-text {
         line-height: 1.4; }
-      .minimodal-wrapper .characteristic-list .characteristic-item .characteristic-separator {
+      .minimodal-container .characteristic-list .characteristic-item .characteristic-separator {
         display: inline-block; }
-        .minimodal-wrapper .characteristic-list .characteristic-item .characteristic-separator::before {
+        .minimodal-container .characteristic-list .characteristic-item .characteristic-separator::before {
           content: "\2022";
           color: #646464;
           display: inline-block;
           padding-right: .5vw;
           font-size: 1vw; }
-  .minimodal-wrapper .match-score-wrapper .show-match-score .thumb-down svg, .minimodal-wrapper .match-score-wrapper .show-match-score .thumb-up svg {
+  .minimodal-container .match-score-wrapper .show-match-score .thumb-down svg, .minimodal-container .match-score-wrapper .show-match-score .thumb-up svg {
     width: 0 !important;
     height: 0 !important;
     opacity: 0;
@@ -345,38 +340,28 @@ html {
       padding: 2 2px;
       transition: .25s linear all; }
       .recommend .swiper-container .swiper-slide img {
-        width: 275px;
+        width: 100%;
         height: auto;
         border-radius: 2px; }
-        @media only screen and (max-width: 1399px) {
-          .recommend .swiper-container .swiper-slide img {
-            width: 252px; } }
-        @media only screen and (max-width: 1099px) {
-          .recommend .swiper-container .swiper-slide img {
-            width: 248px; } }
-        @media only screen and (max-width: 799px) {
-          .recommend .swiper-container .swiper-slide img {
-            width: 242px; } }
-        @media only screen and (max-width: 499px) {
-          .recommend .swiper-container .swiper-slide img {
-            width: 207px; } }
     .recommend .swiper-container .arrow__btn {
       position: absolute;
       color: #fff;
       text-decoration: none;
       font-size: 5.5em;
       background: rgba(0, 0, 0, 0.7);
-      height: 200px;
+      height: 100%;
       width: 40px;
       z-index: 1;
-      top: 0px;
-      margin: -23px -10px;
-      padding-bottom: 10px;
+      top: -3px;
+      margin: 0px -10px;
       opacity: 0; }
       .recommend .swiper-container .arrow__btn:hover {
         opacity: 1; }
       .recommend .swiper-container .arrow__btn::after {
         display: none; }
+      .recommend .swiper-container .arrow__btn .arrow__icon {
+        position: absolute;
+        font-size: 3pc; }
 
 @media only screen and (max-width: 600px) {
   .arrow__btn {
@@ -385,6 +370,7 @@ html {
 .banner {
   color: white;
   object-fit: contain;
+  width: 100vw;
   height: 750px;
   margin-bottom: 20px; }
   .banner .banner__contents {
