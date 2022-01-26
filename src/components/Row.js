@@ -15,11 +15,31 @@ function Row(props) {
                 <Swiper
                   modules={ [Navigation] }
                   spaceBetween={10}
-                  slidesPerView={6}
-                  slidesPerGroup={6}
                   navigation={{
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
+                  }}
+                  breakpoints= {{
+                    0: {
+                      slidesPerView: 2,
+                      slidesPerGroup: 2,
+                    },
+                    499: {
+                      slidesPerView: 3,
+                      slidesPerGroup: 3,
+                    },
+                    799: { 
+                      slidesPerView: 4,
+                      slidesPerGroup: 4,
+                    },
+                    1099: {
+                      slidesPerView: 5,
+                      slidesPerGroup: 5,
+                    },
+                    1399: {
+                      slidesPerView: 6,
+                      slidesPerGroup: 6,
+                    },
                   }}
                 >
                   <div className="swiper-button-prev arrow__btn" role="button" label="이전 콘텐츠 보기">‹</div>
