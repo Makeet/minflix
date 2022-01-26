@@ -1,9 +1,15 @@
 /* MiniModal.css */
-.minimodal-wrapper{
-    overflow: initial;
+.minimodal-container{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    height: 45vh;
     display: inline-block;
-    position: inherit;
-    border-radius: 2em;
+    border-radius: 0.5em;
+    overflow:hidden;
     background-color:#1e1e1e;
     .minimodal-poster-size-16x9  {
         width: 100%;
@@ -48,9 +54,6 @@
         justify-content: center;
         opacity: 1;
         padding: 0.8rem;
-        position: relative;
-        user-select: none;
-        will-change: background-color, color;
         word-break: break-word;
         white-space: nowrap;
     }

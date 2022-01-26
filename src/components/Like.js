@@ -10,6 +10,7 @@ function Like() {
   const [miniModal, setMiniModal] = useState(false);
   const [movieInfo, setMovieInfo] = useState(null);
   const [coordinate, setCoordinate] = useState([]);
+  const [modalState, setModalState] = useState(true);
 
   const apiCallMovies = async () => {
     setError(null);
@@ -30,18 +31,13 @@ function Like() {
     apiCallMovies();
   }, []);
 
-  /* 미니모달 영역 크기를 잡아주는데 필요한 계산식 */
-  const top_coordinate =
-    coordinate.top - 250 <= 0 ? "60px" : coordinate.top - 250 + "px";
-  const width = (coordinate.right - coordinate.left) * 1.005 + "px";
-
-  const ModalStyle = {
-    width: width,
-    left: coordinate.left + "px",
-    top: top_coordinate,
-  };
-
-
+  useEffect(() => {
+    if(!modalState) {
+      setMiniModal(false);
+      setModalState(true);
+    }
+  }, [modalState]);
+  
   if (loading)
     return (
       <div className="status">
@@ -51,6 +47,12 @@ function Like() {
   if (error) return <div className="status">{error}</div>;
   if (!movies) return null;
 
+  
+  const miniModalContainer = (state)=>{
+    if(state) 
+      return <MiniModal movieInfo={movieInfo} coordinate={coordinate} setModalState={setModalState}/>;
+  }
+ 
   return (
     <>
       <div className="sub-header">
@@ -91,19 +93,7 @@ function Like() {
         </div>
       </div>
       {/* 미니모달 영역 */}
-      {miniModal ? (
-        <div
-          className="minimodal-container"
-          style={ModalStyle}
-          onMouseLeave={(e) => {
-            // setMiniModal(false);
-          }}
-        >
-          <MiniModal movieInfo={movieInfo} size={ModalStyle}/>
-        </div>
-      ) : (
-        ""
-      )}
+      {miniModalContainer(miniModal)}
     </>
   );
 }

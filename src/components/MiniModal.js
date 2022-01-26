@@ -10,25 +10,35 @@ import { ReactComponent as ThumbDownEmpty } from "images/modals/thumbDownEmpty.s
 import { ReactComponent as ThumbDownFilled } from "images/modals/thumbDownFilled.svg";
 import { ReactComponent as MiniPlay } from "images/modals/miniPlay.svg";
 import { ReactComponent as AddFavorite } from "images/modals/add.svg";
+import { ReactComponent as Expanded } from "images/modals/expanded.svg"
+function MiniModal({ movieInfo, coordinate, setModalState }) {
+  /* 미니모달 영역 크기를 잡아주는데 필요한 계산식 */
+  const top_coordinate =
+    coordinate.top - 250 <= 0 ? "60px" : coordinate.top - 250 + "px";
+  const width = (coordinate.right - coordinate.left) * 1.005 + "px";
 
-function MiniModal({ movieInfo, size }) {
-
+  const ModalStyle = {
+    width: width,
+    left: coordinate.left + "px",
+    top: top_coordinate,
+  };
   const modalinfoStyle = {
     opacity: "1",
     transform: "none",
-    padding: "1em"
+    padding: "1em",
+ 
   };
   const metadatAndControls = {
     opacity: "1",
   };
-  
+
   const seperateor = (index) => {
     const result = [];
     if (index !== 0)
       result.push(<span className="characteristic-separator"></span>);
     return result;
   };
-  
+
   const itemList = (characteristic) => {
     const result = [];
     for (let i = 0; i < characteristic.split(",").length; i++) {
@@ -48,153 +58,154 @@ function MiniModal({ movieInfo, size }) {
   };
 
   return (
-    <div className="minimodal-wrapper" style={size}>
-      <div className="minimodal-poster-size-16x9 minimodal-poster-container">
-        <img src={movieInfo.poster} alt="poster" />
-      </div>
-      <div className="miniodal-info-container" style={modalinfoStyle}>
-        <a href={`/detailedModal/` + movieInfo.mno} tabIndex="-1">
-          <div className="mini-modal-container">
-            <div className="previewModal--info-container">
-              <div className="previewModal--metadatAndControls mini-modal has-smaller-buttons">
-                <div className="minimodal-metadata">
-                  <div className="buttons">
-                    <div className="round">
-                      <button className="round" tabIndex="-1" type="button">
-                        <div className="ltr-1ksxkn9">
-                          <div
-                            className="small ltr-18dhnor"
-                            role="presentation"
-                          >
-                            <MiniPlay />
-                          </div>
-                        </div>
-                      </button>
-                    </div>
+    <div
+      className="minimodal-container"
+      style={ModalStyle}
+      onMouseLeave={() => {
+        // setModalState(false);
+      }}
+    >
+      <div className="minimodal-wrapper">
+        <div className="minimodal-poster-size-16x9 minimodal-poster-container">
+          <img src={movieInfo.poster} alt="poster" />
+        </div>
+        <div className="miniodal-info-container" style={modalinfoStyle}>
+          <a href={`/detailedModal/` + movieInfo.mno} tabIndex="-1">
+            <div className="mini-modal-container">
+              <div className="previewModal--info-container">
+                <div className="previewModal--metadatAndControls mini-modal has-smaller-buttons">
+                  <div className="minimodal-metadata">
                     <div className="buttons">
-                      <button className="round" data-uia="thumbsUp-button">
-                        <div className="small ltr-18dhnor" role="presentation">
-                          <AddFavorite />
-                        </div>
-                      </button>
-                      <button
-                        aria-label="'좋아요'로 평가하기"
-                        className="color-supplementary hasIcon round ltr-1knzl35"
-                        data-uia="thumbsUp-button"
-                        type="button"
-                      >
-                        <div className="round">
-                          <div
-                            className="small ltr-18dhnor"
-                            role="presentation"
-                          >
-                            <ThumbUpEmpty />
-                          </div>
-                        </div>
-                      </button>
-                      <button
-                        aria-label="'맘에 안 들어요'로 평가하기"
-                        className="color-supplementary hasIcon round ltr-1knzl35"
-                        data-uia="thumbsDown-button"
-                        type="button"
-                      >
-                        <div className="round">
-                          <div
-                            className="small ltr-18dhnor"
-                            role="presentation"
-                          >
-                            <ThumbDownEmpty />
-                          </div>
-                        </div>
-                      </button>
-                    </div>
-                    <div className="buttons buttons-right">
-                      <button
-                        aria-label="expand to detail modal"
-                        className="color-supplementary hasIcon round ltr-1knzl35"
-                        data-uia="expand-to-detail-button"
-                        type="button"
-                      >
-                        <div className="ltr-1ksxkn9">
-                          <div
-                            className="small ltr-18dhnor"
-                            role="presentation"
-                          >
-                            <svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="Hawkins-Icon Hawkins-Icon-Standard"
+                      <div className="round">
+                        <button className="round" tabIndex="-1" type="button">
+                          <div className="ltr-1ksxkn9">
+                            <div
+                              className="small ltr-18dhnor"
+                              role="presentation"
                             >
-                              <path
-                                fillRule="evenodd"
-                                clipRule="evenodd"
-                                d="M19.293 7.29297L12.0001 14.5859L4.70718 7.29297L3.29297 8.70718L11.293 16.7072C11.4805 16.8947 11.7349 17.0001 12.0001 17.0001C12.2653 17.0001 12.5196 16.8947 12.7072 16.7072L20.7072 8.70718L19.293 7.29297Z"
-                                fill="currentColor"
-                              ></path>
-                            </svg>
-                          </div>
-                        </div>
-                      </button>
-                    </div>
-                  </div>
-                  <div
-                    className="previewModal--metadatAndControls-info"
-                    style={metadatAndControls}
-                  >
-                    <div>
-                      <div
-                        data-uia="videoMetadata--container"
-                        className="videoMetadata--container"
-                      >
-                        <div className="videoMetadata--first-line">
-                          <span className="match-score-wrapper">
-                            <div className="show-match-score rating-inner">
-                              <div className="meta-thumb-container thumb-down">
-                                <ThumbDownFilled />
-                              </div>
-                              <div className="meta-thumb-container thumb-up">
-                                <ThumbUpFilled />
-                              </div>
+                              <MiniPlay />
                             </div>
-                          </span>
-                        </div>
-                        <div className="videoMetadata--second-line">
-                          <span className="maturity-rating ">
-                            <span>
-                              {movieInfo.maturity.split("세")[0] === "12" ? (
-                                <Maturity12 width="24px" height="24px" />
-                              ) : movieInfo.maturity.split("세")[0] === "15" ? (
-                                <Maturity15 width="24px" height="24px" />
-                              ) : movieInfo.maturity.split("세")[0] === "18" ? (
-                                <Maturity18 width="24px" height="24px" />
-                              ) : (
-                                <MaturityAll width="24px" height="24px" />
-                              )}
+                          </div>
+                        </button>
+                      </div>
+                      <div className="buttons">
+                        <button className="round" data-uia="thumbsUp-button">
+                          <div
+                            className="small ltr-18dhnor"
+                            role="presentation"
+                          >
+                            <AddFavorite />
+                          </div>
+                        </button>
+                        <button
+                          aria-label="'좋아요'로 평가하기"
+                          className="color-supplementary hasIcon round ltr-1knzl35"
+                          data-uia="thumbsUp-button"
+                          type="button"
+                        >
+                          <div className="round">
+                            <div
+                              className="small ltr-18dhnor"
+                              role="presentation"
+                            >
+                              <ThumbUpEmpty />
+                            </div>
+                          </div>
+                        </button>
+                        <button
+                          aria-label="'맘에 안 들어요'로 평가하기"
+                          className="color-supplementary hasIcon round ltr-1knzl35"
+                          data-uia="thumbsDown-button"
+                          type="button"
+                        >
+                          <div className="round">
+                            <div
+                              className="small ltr-18dhnor"
+                              role="presentation"
+                            >
+                              <ThumbDownEmpty />
+                            </div>
+                          </div>
+                        </button>
+                      </div>
+                      <div className="buttons buttons-right">
+                        <button
+                          aria-label="expand to detail modal"
+                          className="color-supplementary hasIcon round ltr-1knzl35"
+                          data-uia="expand-to-detail-button"
+                          type="button"
+                        >
+                          <div className="ltr-1ksxkn9">
+                            <div
+                              className="small ltr-18dhnor"
+                              role="presentation"
+                            >
+                            <Expanded/>
+                            </div>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                    <div
+                      className="previewModal--metadatAndControls-info"
+                      style={metadatAndControls}
+                    >
+                      <div>
+                        <div
+                          data-uia="videoMetadata--container"
+                          className="videoMetadata--container"
+                        >
+                          <div className="videoMetadata--first-line">
+                            <span className="match-score-wrapper">
+                              <div className="show-match-score rating-inner">
+                                <div className="meta-thumb-container thumb-down">
+                                  <ThumbDownFilled />
+                                </div>
+                                <div className="meta-thumb-container thumb-up">
+                                  <ThumbUpFilled />
+                                </div>
+                              </div>
                             </span>
-                          </span>
-                          <span className="duration">{movieInfo.duration}</span>
+                          </div>
+                          <div className="videoMetadata--second-line">
+                            <span className="maturity-rating ">
+                              <span>
+                                {movieInfo.maturity.split("세")[0] === "12" ? (
+                                  <Maturity12 width="24px" height="24px" />
+                                ) : movieInfo.maturity.split("세")[0] ===
+                                  "15" ? (
+                                  <Maturity15 width="24px" height="24px" />
+                                ) : movieInfo.maturity.split("세")[0] ===
+                                  "18" ? (
+                                  <Maturity18 width="24px" height="24px" />
+                                ) : (
+                                  <MaturityAll width="24px" height="24px" />
+                                )}
+                              </span>
+                            </span>
+                            <span className="duration">
+                              {movieInfo.duration}
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    className="previewModal--metadatAndControls-tags-container"
-                    style={metadatAndControls}
-                  >
-                    <div className="characteristic-tags">
-                      <div className="characteristic-list">
-                        {itemList(movieInfo.characteristic)}
+                    <div
+                      className="previewModal--metadatAndControls-tags-container"
+                      style={metadatAndControls}
+                    >
+                      <div className="characteristic-tags">
+                        <div className="characteristic-list">
+                          {itemList(movieInfo.characteristic)}
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </div>
     </div>
   );
