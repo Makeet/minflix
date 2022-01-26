@@ -16,22 +16,19 @@ function Row(props) {
                   modules={ [Navigation] }
                   spaceBetween={10}
                   slidesPerView={6}
-                  onSlideChange={() => console.log('slide change')}
-                  onSwiper={(swiper) => console.log(swiper)}
+                  slidesPerGroup={6}
                   navigation={{
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
                   }}
                 >
-                  <span className="swiper-button-prev arrow__btn" role="button" aria-aria-label="이전 콘텐츠 보기">‹</span>
-    
+                  <div className="swiper-button-prev arrow__btn" role="button" label="이전 콘텐츠 보기">‹</div>
                   {props.category.map((movie) => (
                     <SwiperSlide key={movie.mno}>
                       <img src={movie.poster} alt={`poster of ${movie.title}`} />
                     </SwiperSlide>
                   ))}
-    
-                  <span className="swiper-button-next arrow__btn" role="button" aria-aria-label="콘텐츠 더 보기">›</span>
+                  <div className="swiper-button-next arrow__btn" role="button" label="콘텐츠 더 보기">›</div>
                 </Swiper>
                 
             </div>
