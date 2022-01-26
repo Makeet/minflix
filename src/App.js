@@ -6,6 +6,8 @@ import NavBar from "components/NavBar";
 import Footer from "components/Footer";
 import Like from "components/Like";
 import axios from "axios";
+import { ReactComponent as Loading } from 'images/loading.svg';
+
 
 function App() {
     const [movies, setMovies] = useState(null);
@@ -40,7 +42,7 @@ function App() {
       apiCallMovies();
     }, []);
   
-    if(loading) return <div>로딩중...</div>
+    if(loading) return <div><Loading/></div>
     if(error) return <div>에러발생</div>
     if(!movies) return null;
   
