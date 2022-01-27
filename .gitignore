@@ -25,3 +25,8 @@ yarn-error.log*
 /.sass-cache
 .env
 /server/config/config.json
+
+
+#  git 충돌을 막기위한 ignore 추가
+/public/src/App.css
+/public/src/App.css.map
