@@ -1,6 +1,7 @@
 import React from "react";
 import Row from "./Row";
 import Banner from "./Banner";
+import Landing from "./Landing";
 
 function Home(props) {
   // const popularMovies = []; //좋아요 버튼 처리 후 개발예정

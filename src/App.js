@@ -7,6 +7,7 @@ import Footer from "components/Footer";
 import Like from "components/Like";
 import axios from "axios";
 import { ReactComponent as Loading } from 'images/loading.svg';
+import Landing from "components/Landing";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [banner, setBanner] = useState(null);
+    const [login, setLogin] = useState(false);
     
     console.log("db call...");
   
@@ -49,12 +51,14 @@ function App() {
     return (
       <div className="App">
         <Router basename="/">
-          <NavBar />
           <Switch>
-            <Route exact 
-              path="/" 
-              render={() => <Home movies={movies.data} banner={banner} />} 
-            />
+            { login ? 
+            <>
+              <NavBar />
+              <Route exact 
+                path="/" 
+                render={() => <Home movies={movies.data} banner={banner} />} /> 
+            </> : <Landing />}
             <Route exact path="/like" component={Like}/>
           </Switch>
           <Footer />

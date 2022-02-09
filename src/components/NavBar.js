@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { faAngleDown, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import logo from "logos/logo.png";
+import logo from "images/logos/logo.png";
 import Category from "./Category";
 
 function NavBar() {
