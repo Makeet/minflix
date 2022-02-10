@@ -32,9 +32,8 @@ function Like() {
   }, []);
 
   useEffect(() => {
-    console.log(modalState)
     if(!modalState) {
-      // setMiniModal(false);
+      setMiniModal(false);
       setModalState(true);
     }
   }, [modalState]);
@@ -50,7 +49,6 @@ function Like() {
 
   
   const miniModalContainer = (state)=>{
-    console.log(state)
     if(state) 
       return <MiniModal movieInfo={movieInfo} coordinate={coordinate} setModalState={setModalState}/>;
   }
@@ -66,25 +64,25 @@ function Like() {
             <div className="item" key={movie.mno}>
               <div
                 className="boxart-size-16x9 boxart-container boxart-rounded"
+                onMouseOver={(e) => {
+                  setMiniModal(true);
+                  setMovieInfo(movie);
+                  setCoordinate({
+                    left:
+                      window.pageXOffset +
+                      e.target.getBoundingClientRect().left,
+                    right:
+                      window.pageXOffset +
+                      e.target.getBoundingClientRect().right,
+                    top:
+                      window.pageYOffset + e.target.getBoundingClientRect().top,
+                  });
+                }}
               >
                 <img
                   className="boxart-image-in-padded-container"
                   src={movie.poster}
                   alt={`poster`}
-                  onMouseOver={(e) => {
-                    setMiniModal(true);
-                    setMovieInfo(movie);
-                    setCoordinate({
-                      left:
-                        window.pageXOffset +
-                        e.target.getBoundingClientRect().left,
-                      right:
-                        window.pageXOffset +
-                        e.target.getBoundingClientRect().right,
-                      top:
-                        window.pageYOffset + e.target.getBoundingClientRect().top,
-                    });
-                  }}
                 />
                 <div className="fallback-text-container">
                   <p className="fallback-text">{`${movie.title}`}</p>

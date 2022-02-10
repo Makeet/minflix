@@ -22,7 +22,7 @@ function NavBar() {
         <ul>
           <li>
           <a id="logo" href="/">
-            <img src={logo} className="logo" alt="logo" />
+            <img src={logo} className="header-logo" alt="logo" />
           </a>
           </li>
           <li className="navigation-menu">
@@ -31,7 +31,7 @@ function NavBar() {
             </a>
             <ul className={isOpenMenu ? "show-menu" : "hide-menu"}>
               <li>
-                <a href="#!">홈</a>
+                <a href="/">홈</a>
               </li>
               <li>
                 <a href="#!">카테고리</a>
@@ -48,7 +48,7 @@ function NavBar() {
 
         <ul className="left_menu">
           <li>
-            <a href="#!">홈</a>
+            <a href="/">홈</a>
           </li>
             <Category />
           <li>
@@ -68,7 +68,7 @@ function NavBar() {
             </span>
           </li>
           <li>
-            <a href="#!">로그아웃</a>
+            <a href="/login">로그아웃</a>
           </li>
         </ul>
       </header>

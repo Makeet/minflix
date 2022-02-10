@@ -62,7 +62,7 @@ function MiniModal({ movieInfo, coordinate, setModalState }) {
       className="minimodal-container"
       style={ModalStyle}
       onMouseLeave={() => {
-        setModalState(false);
+        // setModalState(false);
       }}
     >
       <div className="minimodal-wrapper">

@@ -8,6 +8,7 @@ import Like from "components/Like";
 import axios from "axios";
 import { ReactComponent as Loading } from 'images/loading.svg';
 import Landing from "components/Landing";
+import Login from "components/Login";
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [banner, setBanner] = useState(null);
-    const [login, setLogin] = useState(false);
+    const [login, setLogin] = useState(true);
     
     console.log("db call...");
   
@@ -52,6 +53,7 @@ function App() {
       <div className="App">
         <Router basename="/">
           <Switch>
+            <Route exact path="/login" component={Login}/>
             { login ? 
             <>
               <NavBar />
