@@ -6,7 +6,7 @@ import firebase from "./firebase";
 
 function Login() {
 
-    // console.log(firebase);
+    console.log(firebase);
   
   return (
     <>
