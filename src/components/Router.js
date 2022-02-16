@@ -8,6 +8,7 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 import Login from "./Login";
 import Footer from "./Footer";
+import Join from "./Join";
 
 const AppRouter = ({refreshUser, isLoggedIn, userObj}) => {
 
@@ -68,10 +69,13 @@ const AppRouter = ({refreshUser, isLoggedIn, userObj}) => {
                         <Route exact path="/login">
                             <Login />
                         </Route>
+                        <Route exact path="/join">
+                            <Join />
+                        </Route>
                     </>
                 )}
-                <Footer />
             </Switch>
+            <Footer />
         </Router>
     );
 };

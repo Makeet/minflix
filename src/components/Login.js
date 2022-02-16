@@ -3,11 +3,13 @@ import logo from "images/logos/logo.png";
 import gogl_logo from "images/logos/google_logo.png";
 import { authService } from "components/Fbase";
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { useHistory } from "react-router";
 
 function Login() {
         const [email, setEmail] = useState("");
         const [password, setPassword] = useState("");
         const [error, setError] = useState("");
+        const history = useHistory();
        
         const onChange = (event) => {
             const { target: {name, value} } = event;
@@ -22,7 +24,7 @@ function Login() {
           };
 
           const onSocialClick = async (event) => {
-            // console.log(event.target.name);
+            console.log(event.target.name);
             const {
                 target:{name},
             } = event;
@@ -35,6 +37,7 @@ function Login() {
             }
     
             await signInWithPopup(authService, provider);
+            history.push("/");
         };
 
     
@@ -45,11 +48,20 @@ function Login() {
                 //로그인
                 data = await signInWithEmailAndPassword(authService, email, password);
     
+                history.push("/");
                 // console.log(data);
             } catch(error) {
                 setError(error.message);
             }
         };
+
+        if (error == "Firebase: Error (auth/user-not-found)."){
+            setError("이 이메일 주소를 사용하는 계정을 찾을 수 없습니다.다시 시도하시거나 새로운 계정을 등록하세요.");
+        }else if(error == "Firebase: Error (auth/wrong-password)."){
+            setError("비밀번호를 잘못 입력하셨습니다. 다시 입력하시거나 비밀번호를 재설정하세요.");
+        }else if(error == "Firebase: Error (auth/invalid-email)."){
+            setError("이메일 주소를 입력해주세요.");
+        }
   
   return (
     <>
@@ -80,20 +92,18 @@ function Login() {
                         <a href="https://www.netflix.com/dz-en/LoginHelp">도움이 필요하신가요?</a>
                     
                     </div>
-                    {error && <span className="authError">죄송합니다. 이 이메일 주소를 사용하는 계정을 찾을 수 없습니다. 다시 시도하시거나 새로운 계정을 등록하세요.</span>}
+                    {error && <span className="authError">{error}</span>}
                 </form>
 
             </div>
             
             <div className="gogl">
                 <img src={gogl_logo} className="gogl-icon" />
-                <a href="#" onClick={onSocialClick} name="google">
-                    <p>Google로 로그인</p>
-                </a>
+                <a href="#" onClick={onSocialClick} name="google">Google로 로그인</a>
             </div>
             <div className="signup">
                 <p>Minflix 회원이 아닌가요?</p>
-                <a href="#">지금 가입하세요</a>
+                <a href="join">지금 가입하세요</a>
             </div>
         </div>
    
