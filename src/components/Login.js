@@ -2,9 +2,11 @@ import React from "react";
 import logo from "images/logos/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons"
-// import { faAngleDown, faFacebookSquare } from "@fortawesome/free-solid-svg-icons";
+import firebase from "./firebase";
 
 function Login() {
+
+    // console.log(firebase);
   
   return (
     <>

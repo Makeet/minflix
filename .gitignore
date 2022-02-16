@@ -30,3 +30,5 @@ yarn-error.log*
 #  git 충돌을 막기위한 ignore 추가
 src/App.css
 src/App.css.map
+
+.env
