@@ -3,10 +3,13 @@ import { faAngleDown, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from "images/logos/logo.png";
 import Category from "./Category";
+import { useHistory } from "react-router";
+import { authService } from "./Fbase";
 
 function NavBar() {
   const [isOpenMenu, setToggleMenu] = useState(false);
   const [isOpenSearch, setToggleSearch] = useState(false);
+  const history = useHistory();
 
   const toggleMenu = () => {
     setToggleMenu((isOpenMenu) => !isOpenMenu);
@@ -14,6 +17,11 @@ function NavBar() {
   const toggleSearch = () => {
     setToggleSearch((isOpenSearch) => !isOpenSearch);
   };
+
+  const onLogOutClick = () => {
+    authService.signOut();
+    history.push("/");
+};
 
 
   return (
@@ -68,7 +76,7 @@ function NavBar() {
             </span>
           </li>
           <li>
-            <a href="/login">로그아웃</a>
+            <span  onClick={onLogOutClick}>로그아웃</span>
           </li>
         </ul>
       </header>

@@ -107,17 +107,12 @@ input[type=password] {
 
 /* ------ input end ------- */
 
-.fcbk {
+.gogl {
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 	font-size: 0.8em;
-}
-
-.fcbk img {
-	width: 20px;
-	margin-right: 10px;
 }
 
 .signup {
@@ -138,9 +133,10 @@ input[type=password] {
 
 /* ------ FOOTER ------- */
 
-.fcbk-icon{
+.gogl-icon{
     padding-right: 7px;
-    color: rgb(52, 112, 240);
+    // color: rgb(52, 112, 240);
+	width: 20px;
   }
   
 
@@ -182,3 +178,11 @@ input[type=password] {
 	padding-left: 10px;
 	background: #333333;
 }
+
+.authError {
+	color: tomato;
+	text-align: center;
+	font-weight: 500;
+	font-size: 12px;
+	padding-top: 5px;
+  }
