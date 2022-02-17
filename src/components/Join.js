@@ -67,13 +67,13 @@ function Join() {
             <div className="formm">
                 <form onSubmit={onSubmit}>
                     <h1>회원가입</h1>
-                    <div className="info">
-                        <input name="nickName" className="email" type="text" placeholder="이름" onChange={onChange} />
+                    <div className="info join">
+                        <input name="nickName" className="email join" type="text" placeholder="이름" onChange={onChange} />
                         <br />
-                        <input name="email" className="email" type="email" placeholder="이메일 주소 또는 전화번호" onChange={onChange} /> <br />
-                        <input name="password" className="email" type="password" placeholder="비밀번호" onChange={onChange} />
+                        <input name="email" className="email join" type="email" placeholder="이메일 주소 또는 전화번호" onChange={onChange} /> <br />
+                        <input name="password" className="email join" type="password" placeholder="비밀번호" onChange={onChange} />
                         <br />
-                        <input name="rePassword" className="email" type="password" placeholder="비밀번호 재입력" onChange={onChange} />
+                        <input name="rePassword" className="email join" type="password" placeholder="비밀번호 재입력" onChange={onChange} />
                     </div>
 
                     <div className="login-btn">

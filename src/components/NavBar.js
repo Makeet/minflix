@@ -1,21 +1,18 @@
 import React, { useState } from "react";
-import { faAngleDown, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from "images/logos/logo.png";
 import Category from "./Category";
 import { useHistory } from "react-router";
 import { authService } from "./Fbase";
+import Search from "./Search";
 
 function NavBar() {
   const [isOpenMenu, setToggleMenu] = useState(false);
-  const [isOpenSearch, setToggleSearch] = useState(false);
   const history = useHistory();
 
   const toggleMenu = () => {
     setToggleMenu((isOpenMenu) => !isOpenMenu);
-  };
-  const toggleSearch = () => {
-    setToggleSearch((isOpenSearch) => !isOpenSearch);
   };
 
   const onLogOutClick = () => {
@@ -47,9 +44,6 @@ function NavBar() {
               <li>
                 <a href="/like">찜한 콘텐츠</a>
               </li>
-              <li>
-                <a href="#!">설정</a>
-              </li>
             </ul>
           </li>
         </ul>
@@ -65,16 +59,7 @@ function NavBar() {
         </ul>
 
         <ul className="right_menu">
-          <li onClick={() => toggleSearch()} className="search">
-            <input
-              className={"searchInput" + (isOpenSearch ? " toggle" : "")}
-              type="text"
-              placeholder="제목, 장르, 사람"
-            />
-            <span className="searchIcon">
-              <FontAwesomeIcon icon={faSearch} />
-            </span>
-          </li>
+          <Search />
           <li>
             <span  onClick={onLogOutClick}>로그아웃</span>
           </li>
