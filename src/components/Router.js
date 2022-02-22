@@ -53,7 +53,7 @@ const AppRouter = ({refreshUser, isLoggedIn, userObj}) => {
             <Switch>
                 {isLoggedIn ? (
                     <div>
-                        <NavBar />
+                        <NavBar movies={movies.data} />
                         <Route exact path="/">
                             <Home movies={movies.data} banner={banner} userObj={userObj} />
                         </Route>

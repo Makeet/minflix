@@ -7,9 +7,10 @@ import { useHistory } from "react-router";
 import { authService } from "./Fbase";
 import Search from "./Search";
 
-function NavBar() {
+function NavBar(props) {
   const [isOpenMenu, setToggleMenu] = useState(false);
   const history = useHistory();
+  const movies = props.movies;
 
   const toggleMenu = () => {
     setToggleMenu((isOpenMenu) => !isOpenMenu);
@@ -59,7 +60,7 @@ function NavBar() {
         </ul>
 
         <ul className="right_menu">
-          <Search />
+          <Search movies={movies} />
           <li>
             <span  onClick={onLogOutClick}>로그아웃</span>
           </li>

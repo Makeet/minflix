@@ -22,37 +22,36 @@ a:hover {
     justify-content: space-between; 
     background-color: rgba(0, 0, 0, 0);
     position:relative;
-  }
-  
-  .header ul {
-    display: flex;
-    padding: 10px;
-    position: absolute;
-    top: 15%;
-  }
-  .header ul li {
-    cursor: pointer;
-    letter-spacing: 1px;
-  }
-  
-  .header .left_menu li, .header .right_menu li {
-    margin-left: 17px;
-    color: #ddd;
-    font-size: 15px;
-  }
-  
-  .header .left_menu{
-    left: 170px;
-    margin: 0px;
-  }
-  
-  .header .right_menu{
-    right: 4vw;
-  }
-  
-  .header .navigation-menu {
-    display: none;
-    margin-left: 42px;
+
+    ul {
+      display: flex;
+      padding: 10px;
+      position: absolute;
+      top: 15%;
+
+      li {
+        cursor: pointer;
+        letter-spacing: 1px;
+      }
+    }
+
+    .left_menu li, .header .right_menu li {
+      margin-left: 17px;
+      color: #ddd;
+      font-size: 15px;
+    }
+    
+    .left_menu{
+      left: 170px;
+      margin: 0px;
+    }
+    .right_menu{
+      right: 4vw;
+    }
+    .navigation-menu {
+      display: none;
+      margin-left: 42px;
+    }
   }
   
   .show-menu{
@@ -68,16 +67,16 @@ a:hover {
     left: 90px;
     text-align:center;
     flex-direction: column;
+
+    li {
+      padding: 10px 0px 10px 0px;
+      &:hover {
+        background-color: rgba(51, 51, 51, 0.7);
+      }
+    }
+
   }
 
-  .show-menu li {
-    padding: 10px 0px 10px 0px;
-  }
-
-  .show-menu li:hover {
-    background-color: rgba(51, 51, 51, 0.7);
-  }
-  
   .hide-menu, .search-hide {
     visibility: hidden ;
   }

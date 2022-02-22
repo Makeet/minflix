@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Search() {
+function Search(props) {
   const [isOpenSearch, setToggleSearch] = useState(false);
   const [search, setSearch] = useState("");
+  const movies = props.movies;
 
   const toggleSearch = (e) => {
     if(!isOpenSearch) setToggleSearch((isOpenSearch) => !isOpenSearch);
@@ -16,17 +17,12 @@ function Search() {
     // console.log(e);
   }
 
-  const onChange = (e) => {
-    setSearch(e.target.value);
-    // console.log(e.target.value);
-  }
-
-   
   return (
     <div>
         <li onBlur={onBlur} onClick={toggleSearch} className="search">
             <input
-              onChange={onChange}
+              onChange={(e) => { setSearch(e.target.value); }}
+
               className={"searchInput" + (isOpenSearch ? " toggle" : "")} 
               type="text"
               placeholder="제목, 장르, 사람"
