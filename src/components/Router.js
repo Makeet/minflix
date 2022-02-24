@@ -9,6 +9,7 @@ import Home from "./Home";
 import Login from "./Login";
 import Footer from "./Footer";
 import Join from "./Join";
+import SearchResult from "./SearchResult";
 
 const AppRouter = ({refreshUser, isLoggedIn, userObj}) => {
 
@@ -16,8 +17,13 @@ const AppRouter = ({refreshUser, isLoggedIn, userObj}) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [banner, setBanner] = useState(null);
+    const [isSearch, setIsSearch] = useState(false);
+    const [searchResults, setSearchResults] = useState([]);
     
     console.log("db call...");
+
+    // console.log(isSearch);
+    // console.log(searchResults);
   
     const apiCallMovies = async () => {
       setError(null);
@@ -53,13 +59,21 @@ const AppRouter = ({refreshUser, isLoggedIn, userObj}) => {
             <Switch>
                 {isLoggedIn ? (
                     <div>
-                        <NavBar movies={movies.data} />
-                        <Route exact path="/">
-                            <Home movies={movies.data} banner={banner} userObj={userObj} />
-                        </Route>
-                        <Route exact path="/like">
-                            <Like userObj={userObj} refreshUser={refreshUser} / >
-                        </Route>
+                        <NavBar movies={movies.data} 
+                            isSearch={(isSearch) => setIsSearch(isSearch)} 
+                            searchResults={(searchResults) => setSearchResults(searchResults)} 
+                        />
+                        { isSearch ? 
+                            <SearchResult searchResults={searchResults} movies={movies.data} /> :
+                            <>
+                                <Route exact path="/">
+                                    <Home movies={movies.data} banner={banner} userObj={userObj} />
+                                </Route>
+                                <Route exact path="/like">
+                                    <Like userObj={userObj} refreshUser={refreshUser} / >
+                                </Route>
+                            </>
+                        }
                     </div>
                 ) : (
                     <>

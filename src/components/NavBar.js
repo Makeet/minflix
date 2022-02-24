@@ -5,7 +5,7 @@ import logo from "images/logos/logo.png";
 import Category from "./Category";
 import { useHistory } from "react-router";
 import { authService } from "./Fbase";
-import Search from "./Search";
+import SearchFilter from "./SearchFilter";
 
 function NavBar(props) {
   const [isOpenMenu, setToggleMenu] = useState(false);
@@ -60,7 +60,7 @@ function NavBar(props) {
         </ul>
 
         <ul className="right_menu">
-          <Search movies={movies} />
+          <SearchFilter movies={movies} isSearch={props.isSearch} searchResults={props.searchResults} />
           <li>
             <span  onClick={onLogOutClick}>로그아웃</span>
           </li>
