@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 
 import { ReactComponent as MaturityAll } from "images/maturity/all.svg";
 import { ReactComponent as Maturity12 } from "images/maturity/12.svg";
@@ -11,6 +11,7 @@ import { ReactComponent as ThumbDownFilled } from "images/modals/thumbDownFilled
 import { ReactComponent as MiniPlay } from "images/modals/miniPlay.svg";
 import { ReactComponent as AddFavorite } from "images/modals/add.svg";
 import { ReactComponent as Expanded } from "images/modals/expanded.svg"
+import Modal from "/Modal";
 function MiniModal({ movieInfo, coordinate, setModalState }) {
   /* 미니모달 영역 크기를 잡아주는데 필요한 계산식 */
   const top_coordinate =
@@ -31,6 +32,7 @@ function MiniModal({ movieInfo, coordinate, setModalState }) {
   const metadatAndControls = {
     opacity: "1",
   };
+  const [DetailedModal, setDetailedModal] = useState(false);
 
   const seperateor = (index) => {
     const result = [];
@@ -70,7 +72,8 @@ function MiniModal({ movieInfo, coordinate, setModalState }) {
           <img src={movieInfo.poster} alt="poster" />
         </div>
         <div className="miniodal-info-container" style={modalinfoStyle}>
-          <a href={`/detailedModal/` + movieInfo.mno} tabIndex="-1">
+          {/* <a href={`/detailedModal/` + movieInfo.mno} tabIndex="-1"> */}
+          
             <div className="mini-modal-container">
               <div className="previewModal--info-container">
                 <div className="previewModal--metadatAndControls mini-modal has-smaller-buttons">
@@ -204,7 +207,7 @@ function MiniModal({ movieInfo, coordinate, setModalState }) {
                 </div>
               </div>
             </div>
-          </a>
+          {/* </a> */}
         </div>
       </div>
     </div>
